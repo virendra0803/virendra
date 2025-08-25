@@ -129,7 +129,7 @@ export default function Home() {
             
             <div className="text-xl md:text-2xl mb-6 text-cyber" data-testid="hero-subtitle">
               <TypingAnimation 
-                text="🚀 Information Security Officer | Cybersecurity Professional | Penetration Tester"
+                text="Information Security Officer | Cybersecurity Professional"
                 speed={50}
               />
             </div>
@@ -224,10 +224,10 @@ export default function Home() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-matrix mb-2" data-testid="job-title-current">Information Security Officer</h3>
-                  <p className="text-cyber">(Your Company / Freelance / Current Role)</p>
+                  <p className="text-cyber">(Nuagecx Consulting PVT LTD)</p>
                 </div>
                 <div className="text-gray-400 mt-2 md:mt-0">
-                  <span className="bg-charcoal px-3 py-1 rounded text-sm">2023 – Present</span>
+                  <span className="bg-charcoal px-3 py-1 rounded text-sm">Dec 2024 – Present</span>
                 </div>
               </div>
               
@@ -259,10 +259,10 @@ export default function Home() {
             <TerminalEffect>
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-matrix mb-2" data-testid="job-title-intern">Intern – MongoDB & Django Development</h3>
+                  <h3 className="text-xl font-bold text-matrix mb-2" data-testid="job-title-intern">Cyber Security Researcher</h3>
                 </div>
                 <div className="text-gray-400 mt-2 md:mt-0">
-                  <span className="bg-charcoal px-3 py-1 rounded text-sm">3 Months</span>
+                  <span className="bg-charcoal px-3 py-1 rounded text-sm">2 Years</span>
                 </div>
               </div>
               
