@@ -1,0 +1,86 @@
+Portfolio Website Content – Virendra Gawande
+Hero Section (Homepage)
+
+Hi, I’m Virendra Gawande
+🚀 Information Security Officer | Cybersecurity Professional | Penetration Tester
+
+"I help businesses strengthen their digital security by identifying vulnerabilities, implementing security controls, and ensuring compliance with industry standards."
+
+🔗 LinkedIn
+ | GitHub
+ | 📧 connect.virendragawande@gmail.com
+
+About Me
+
+I am an Information Security Officer and cybersecurity professional with hands-on experience in penetration testing, web application security, API security, and network defense.
+
+I specialize in helping organizations identify vulnerabilities, mitigate security risks, and achieve compliance with frameworks like ISO 27001 and GDPR. With expertise in security tools and real-world testing methodologies, I ensure businesses maintain a resilient and secure digital environment.
+
+Experience
+Information Security Officer
+
+(Your Company / Freelance / Current Role)
+2023 – Present
+
+Conducted Web, Mobile, and API Penetration Testing to identify vulnerabilities such as SQLi, XSS, IDOR, CSRF, and RCE.
+
+Implemented SIEM monitoring, firewalls, and intrusion detection systems to improve threat visibility.
+
+Performed phishing simulations and security awareness training for employees.
+
+Designed and executed incident response playbooks to contain and mitigate attacks.
+
+Worked with cross-functional teams to ensure compliance with ISO 27001 and industry best practices.
+
+Intern – MongoDB & Django Development
+
+3 Months
+
+Built secure authentication systems with Django & MongoDB.
+
+Developed user registration, session management, and password recovery modules.
+
+Cybersecurity Projects
+
+🔹 Web Application Penetration Testing – E-Commerce Platform
+Performed a full-scope VAPT on a live e-commerce application. Discovered SQL injection, insecure direct object references (IDOR), and weak authentication mechanisms. Provided remediation steps and re-tested to ensure patch effectiveness.
+
+🔹 Network Security Assessment – Corporate Infrastructure
+Conducted external and internal penetration testing on a mid-sized organization’s network. Identified open ports, misconfigured firewalls, and weak VPN implementations. Delivered a detailed risk report with mitigation strategies.
+
+🔹 API Security Testing – Banking Application
+Tested critical APIs for authentication bypass, broken object-level authorization (BOLA), and sensitive data exposure. Helped the client strengthen OAuth 2.0 implementation and improve input validation.
+
+🔹 Social Engineering & Phishing Simulation
+Executed controlled social engineering campaigns to test employee awareness. Designed phishing templates and measured click-through rates, reducing phishing success rates by 60% after awareness training.
+
+🔹 SIEM Log Analysis & Incident Response
+Configured and monitored SIEM dashboards (Splunk/Wazuh) to detect anomalies. Investigated brute force attempts, malware infections, and privilege escalation incidents, followed by containment and eradication.
+
+Skills
+
+Cybersecurity: VAPT, Incident Response, Threat Hunting, Web/App Security, Compliance (ISO 27001, GDPR)
+
+Programming: Python, Bash, SQL, Django
+
+Tools: Burp Suite, Nmap, Metasploit, Wireshark, Nessus, OWASP ZAP, Splunk
+
+OS: Linux, Parrot, Kali, Windows
+
+Certifications
+
+Ethical Hacking Certification – IIT Kharagpur
+
+(You can later add: CEH, OSCP, eJPT, CompTIA Security+ as you earn them)
+
+Achievements
+
+🏆 State-Level Project Competition – Consolation Prize (Scholarship Portal)
+💻 Solved 100+ coding problems on LeetCode & HackerRank
+🎤 Conducted cybersecurity seminars & served as Vice Chairman of ESA
+
+Contact
+
+📧 connect.virendragawande@gmail.com
+
+📞 +91-7498620773
