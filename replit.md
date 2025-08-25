@@ -9,19 +9,19 @@ Preferred communication style: Simple, everyday language.
 # System Architecture
 
 ## Frontend Architecture
-- **Framework**: React 18 with TypeScript for type safety and modern development
-- **Routing**: Wouter for lightweight client-side routing
+- **Framework**: Next.js 15 with React 18 and TypeScript for modern full-stack development
+- **Routing**: Next.js App Router for file-based routing and server components
 - **Styling**: Tailwind CSS with custom cybersecurity-themed color palette (matrix green, cyber blue, electric colors)
 - **UI Components**: Radix UI primitives with shadcn/ui component library for consistent, accessible design
-- **State Management**: TanStack React Query for server state management and data fetching
-- **Build Tool**: Vite for fast development and optimized production builds
+- **State Management**: TanStack React Query for client state management and data fetching
+- **Build Tool**: Next.js built-in bundler for optimized production builds
 
 ## Backend Architecture
-- **Runtime**: Node.js with Express.js framework for REST API endpoints
+- **Framework**: Next.js API Routes for serverless backend functionality
 - **Language**: TypeScript throughout the stack for consistency and type safety
-- **API Pattern**: RESTful architecture with `/api` prefix for all backend routes
-- **Session Management**: PostgreSQL session store with connect-pg-simple for user sessions
-- **Storage Interface**: Abstracted storage layer with in-memory implementation for development
+- **API Pattern**: Next.js API routes with `/api` prefix for backend endpoints
+- **Session Management**: Next.js session handling (can be extended with NextAuth.js)
+- **Storage Interface**: Can be extended with database connections or external APIs
 
 ## Data Storage Solutions
 - **Database**: PostgreSQL configured through Drizzle ORM

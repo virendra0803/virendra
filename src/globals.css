@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 6.3%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 10.6%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 6.3%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(142, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(185, 100%, 42%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 10.6%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(0, 0%, 10.6%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(348, 100%, 50%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(142, 100%, 50%, 0.3);
+  --input: hsl(0, 0%, 10.6%);
+  --ring: hsl(142, 100%, 50%);
+  --chart-1: hsl(142, 100%, 50%);
+  --chart-2: hsl(185, 100%, 42%);
+  --chart-3: hsl(195, 100%, 50%);
+  --chart-4: hsl(348, 100%, 50%);
+  --chart-5: hsl(280, 100%, 50%);
+  --sidebar: hsl(0, 0%, 10.6%);
+  --sidebar-foreground: hsl(0, 0%, 100%);
+  --sidebar-primary: hsl(142, 100%, 50%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(0, 0%, 10.6%);
+  --sidebar-accent-foreground: hsl(0, 0%, 100%);
+  --sidebar-border: hsl(142, 100%, 50%, 0.3);
+  --sidebar-ring: hsl(142, 100%, 50%);
+  --font-sans: 'Fira Code', 'Source Code Pro', monospace;
+  --font-serif: 'Fira Code', 'Source Code Pro', monospace;
+  --font-mono: 'Fira Code', 'Source Code Pro', monospace;
+  --radius: 0.5rem;
+  
+  /* Custom cybersecurity colors */
+  --matrix: hsl(142, 100%, 50%);
+  --cyber: hsl(185, 100%, 42%);
+  --electric: hsl(195, 100%, 50%);
+  --danger: hsl(348, 100%, 50%);
+  --dark: hsl(0, 0%, 6.3%);
+  --darker: hsl(0, 0%, 10.6%);
+  --charcoal: hsl(0, 0%, 15%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 6.3%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 10.6%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 6.3%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(142, 100%, 50%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(185, 100%, 42%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 10.6%);
+  --muted-foreground: hsl(0, 0%, 63.9%);
+  --accent: hsl(0, 0%, 10.6%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(348, 100%, 50%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(142, 100%, 50%, 0.3);
+  --input: hsl(0, 0%, 10.6%);
+  --ring: hsl(142, 100%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-mono antialiased bg-background text-foreground;
+    background-color: var(--dark);
+    color: var(--foreground);
+  }
+}
+
+@layer components {
+  .terminal-border {
+    @apply border-2 rounded-lg bg-gradient-to-br from-darker to-dark;
+    border-color: var(--matrix);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  }
+  
+  .terminal-border:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+  }
+  
+  .matrix-bg {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+  }
+  
+  .glitch-text {
+    position: relative;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-text::before {
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: var(--danger);
+    z-index: -1;
+  }
+  
+  .glitch-text::after {
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: var(--cyber);
+    z-index: -2;
+  }
+  
+  .progress-bar {
+    background: linear-gradient(90deg, var(--matrix) 0%, var(--cyber) 100%);
+    height: 4px;
+    transition: width 2s ease-in-out;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .text-matrix {
+    color: var(--matrix);
+  }
+  
+  .text-cyber {
+    color: var(--cyber);
+  }
+  
+  .text-electric {
+    color: var(--electric);
+  }
+  
+  .text-danger {
+    color: var(--danger);
+  }
+  
+  .bg-dark {
+    background-color: var(--dark);
+  }
+  
+  .bg-darker {
+    background-color: var(--darker);
+  }
+  
+  .bg-charcoal {
+    background-color: var(--charcoal);
+  }
+  
+  .border-matrix {
+    border-color: var(--matrix);
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--matrix); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px var(--matrix), 0 0 10px var(--matrix), 0 0 15px var(--matrix); }
+  to { box-shadow: 0 0 10px var(--matrix), 0 0 20px var(--matrix), 0 0 30px var(--matrix); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.typing-animation {
+  border-right: 3px solid var(--matrix);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--matrix), transparent);
+  animation: scan 2s linear infinite;
+  opacity: 0.6;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
