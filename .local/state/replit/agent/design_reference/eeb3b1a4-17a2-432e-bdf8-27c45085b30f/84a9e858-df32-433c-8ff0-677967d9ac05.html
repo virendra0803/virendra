@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virendra Gawande - Cybersecurity Professional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    'mono': ['Fira Code', 'Source Code Pro', 'monospace'],
+                    'code': ['Source Code Pro', 'monospace']
+                },
+                colors: {
+                    'matrix': '#00ff41',
+                    'cyber': '#00d4aa',
+                    'electric': '#00bfff',
+                    'danger': '#ff0040',
+                    'dark': '#0a0a0a',
+                    'darker': '#111111',
+                    'charcoal': '#1a1a1a'
+                },
+                animation: {
+                    'typing': 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite',
+                    'glow': 'glow 2s ease-in-out infinite alternate',
+                    'glitch': 'glitch 0.3s ease-in-out infinite',
+                    'scan': 'scan 2s linear infinite'
+                },
+                keyframes: {
+                    typing: {
+                        'from': { width: '0' },
+                        'to': { width: '100%' }
+                    },
+                    'blink-caret': {
+                        'from, to': { 'border-color': 'transparent' },
+                        '50%': { 'border-color': '#00ff41' }
+                    },
+                    glow: {
+                        'from': { 'box-shadow': '0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41' },
+                        'to': { 'box-shadow': '0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41' }
+                    },
+                    glitch: {
+                        '0%, 100%': { transform: 'translate(0)' },
+                        '20%': { transform: 'translate(-2px, 2px)' },
+                        '40%': { transform: 'translate(-2px, -2px)' },
+                        '60%': { transform: 'translate(2px, 2px)' },
+                        '80%': { transform: 'translate(2px, -2px)' }
+                    },
+                    scan: {
+                        '0%': { transform: 'translateY(-100%)' },
+                        '100%': { transform: 'translateY(100vh)' }
+                    }
+                }
+            }
+        }
+    };
+    </script>
+
+    <style>
+        .terminal-border {
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            background: linear-gradient(145deg, #111111, #0a0a0a);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        .glitch-text {
+            position: relative;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch-text::before {
+            animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+            color: #ff0040;
+            z-index: -1;
+        }
+        
+        .glitch-text::after {
+            animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+            color: #00d4aa;
+            z-index: -2;
+        }
+        
+        .typing-animation {
+            border-right: 3px solid #00ff41;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            animation: scan 2s linear infinite;
+            opacity: 0.6;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #00ff41 0%, #00d4aa 100%);
+            height: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .matrix-bg {
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(0, 191, 255, 0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+
+<body class="bg-dark font-mono text-white overflow-x-hidden">
+    <!-- @COMPONENT: Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-darker/90 backdrop-blur-sm border-b border-matrix/30">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-matrix font-bold text-xl">
+                    <span class="text-white">root@</span>virendra<span class="text-cyber">:~$</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="hover:text-matrix transition-colors duration-300">./home</a>
+                    <a href="#about" class="hover:text-matrix transition-colors duration-300">./about</a>
+                    <a href="#experience" class="hover:text-matrix transition-colors duration-300">./experience</a>
+                    <a href="#projects" class="hover:text-matrix transition-colors duration-300">./projects</a>
+                    <a href="#skills" class="hover:text-matrix transition-colors duration-300">./skills</a>
+                    <a href="#contact" class="hover:text-matrix transition-colors duration-300">./contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-matrix" id="mobile-menu-btn">
+                    <i class="fas fa-terminal"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-darker border-t border-matrix/30" id="mobile-menu">
+            <div class="px-6 py-4 space-y-2">
+                <a href="#hero" class="block hover:text-matrix transition-colors">./home</a>
+                <a href="#about" class="block hover:text-matrix transition-colors">./about</a>
+                <a href="#experience" class="block hover:text-matrix transition-colors">./experience</a>
+                <a href="#projects" class="block hover:text-matrix transition-colors">./projects</a>
+                <a href="#skills" class="block hover:text-matrix transition-colors">./skills</a>
+                <a href="#contact" class="block hover:text-matrix transition-colors">./contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative matrix-bg">
+        <div class="scan-line"></div>
+        
+        <!-- Cybersecurity hacker workspace background -->
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" alt="Cybersecurity workspace with multiple monitors" class="w-full h-full object-cover" data-mock-image="true" />
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="terminal-border p-8 max-w-4xl mx-auto">
+                <div class="text-left mb-6">
+                    <span class="text-matrix">┌──(</span><span class="text-white">root@</span><span class="text-cyber">cybersec</span><span class="text-matrix">)-[</span><span class="text-white">~/portfolio</span><span class="text-matrix">]</span>
+                    <br>
+                    <span class="text-matrix">└─$ </span><span class="text-white">whoami</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="glitch-text text-white" data-text="Hi, I'm ">Hi, I'm </span>
+                    <span class="text-matrix glitch-text" data-text="Virendra Gawande">Virendra Gawande</span>
+                </h1>
+                
+                <div class="text-xl md:text-2xl mb-6 text-cyber typing-animation" id="typing-text">
+                    🚀 Information Security Officer | Cybersecurity Professional | Penetration Tester
+                </div>
+                
+                <div class="text-lg mb-8 text-gray-300 max-w-3xl mx-auto">
+                    <span class="text-matrix">// </span>"I help businesses strengthen their digital security by identifying vulnerabilities, implementing security controls, and ensuring compliance with industry standards."
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <a href="https://linkedin.com" class="hover-glow bg-charcoal border border-matrix px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-300" data-mock="true">
+                        <i class="fab fa-linkedin text-matrix"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com" class="hover-glow bg-charcoal border border-matrix px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-300" data-mock="true">
+                        <i class="fab fa-github text-matrix"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:connect.virendragawande@gmail.com" class="hover-glow bg-charcoal border border-matrix px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-300">
+                        <i class="fas fa-envelope text-matrix"></i>
+                        <span>Email</span>
+                    </a>
+                </div>
+                
+                <div class="text-left">
+                    <span class="text-matrix">┌──(</span><span class="text-white">guest@</span><span class="text-cyber">portfolio</span><span class="text-matrix">)-[</span><span class="text-white">~/</span><span class="text-matrix">]</span>
+                    <br>
+                    <span class="text-matrix">└─$ </span><span class="text-white">cd about && ls -la</span><span class="animate-pulse">_</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Section -->
+    <section id="about" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>About<span class="text-cyber">.me</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="terminal-border p-8">
+                    <div class="text-left mb-4">
+                        <span class="text-matrix">$ </span><span class="text-white">cat about.txt</span>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-300">
+                        <p>I am an Information Security Officer and cybersecurity professional with hands-on experience in penetration testing, web application security, API security, and network defense.</p>
+                        
+                        <p>I specialize in helping organizations identify vulnerabilities, mitigate security risks, and achieve compliance with frameworks like ISO 27001 and GDPR. With expertise in security tools and real-world testing methodologies, I ensure businesses maintain a resilient and secure digital environment.</p>
+                    </div>
+                    
+                    <div class="mt-6 text-left">
+                        <span class="text-matrix">$ </span><span class="text-white">echo "Securing digital assets since 2023"</span>
+                        <br>
+                        <span class="text-cyber">Securing digital assets since 2023</span>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Terminal screens with code -->
+                    <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Multiple terminal screens showing cybersecurity code" class="rounded-xl shadow-2xl hover-glow transition-all duration-300" data-mock-image="true" />
+                    
+                    <div class="absolute top-4 left-4 bg-dark/80 px-3 py-1 rounded text-sm">
+                        <span class="text-matrix">●</span> <span class="text-cyber">●</span> <span class="text-danger">●</span>
+                        <span class="ml-2 text-white">security_tools.sh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Experience Section -->
+    <section id="experience" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>Experience<span class="text-cyber">.log</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Current Role -->
+                <div class="terminal-border p-8 mb-8 hover-glow transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-matrix mb-2">Information Security Officer</h3>
+                            <p class="text-cyber">(Your Company / Freelance / Current Role)</p>
+                        </div>
+                        <div class="text-gray-400 mt-2 md:mt-0">
+                            <span class="bg-charcoal px-3 py-1 rounded text-sm">2023 – Present</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Conducted Web, Mobile, and API Penetration Testing to identify vulnerabilities such as SQLi, XSS, IDOR, CSRF, and RCE.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Implemented SIEM monitoring, firewalls, and intrusion detection systems to improve threat visibility.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Performed phishing simulations and security awareness training for employees.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Designed and executed incident response playbooks to contain and mitigate attacks.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Worked with cross-functional teams to ensure compliance with ISO 27001 and industry best practices.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intern Role -->
+                <div class="terminal-border p-8 hover-glow transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-matrix mb-2">Intern – MongoDB & Django Development</h3>
+                        </div>
+                        <div class="text-gray-400 mt-2 md:mt-0">
+                            <span class="bg-charcoal px-3 py-1 rounded text-sm">3 Months</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3 text-gray-300">
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Built secure authentication systems with Django & MongoDB.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-matrix mt-1">▸</span>
+                            <p>Developed user registration, session management, and password recovery modules.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Experience Section -->
+
+    <!-- @COMPONENT: Projects Section -->
+    <section id="projects" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>Cybersecurity<span class="text-cyber">.projects</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Web App Penetration Testing -->
+                <div class="terminal-border p-6 hover-glow transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-globe text-matrix text-xl"></i>
+                        <h3 class="text-lg font-bold text-white">Web Application Penetration Testing</h3>
+                    </div>
+                    
+                    <!-- Cybersecurity workspace image -->
+                    <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Cybersecurity workspace with multiple monitoring screens" class="w-full h-48 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <p class="text-gray-300 mb-4 text-sm">E-Commerce Platform</p>
+                    <p class="text-gray-400 text-sm mb-4">Performed a full-scope VAPT on a live e-commerce application. Discovered SQL injection, insecure direct object references (IDOR), and weak authentication mechanisms. Provided remediation steps and re-tested to ensure patch effectiveness.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">SQLi</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">IDOR</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">VAPT</span>
+                    </div>
+                    
+                    <div class="text-left text-sm">
+                        <span class="text-matrix">$ </span><span class="text-white">./exploit --target e-commerce.app</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Network Security Assessment -->
+                <div class="terminal-border p-6 hover-glow transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-network-wired text-matrix text-xl"></i>
+                        <h3 class="text-lg font-bold text-white">Network Security Assessment</h3>
+                    </div>
+                    
+                    <!-- Terminal screen with network analysis -->
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Terminal screen showing network security analysis" class="w-full h-48 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <p class="text-gray-300 mb-4 text-sm">Corporate Infrastructure</p>
+                    <p class="text-gray-400 text-sm mb-4">Conducted external and internal penetration testing on a mid-sized organization's network. Identified open ports, misconfigured firewalls, and weak VPN implementations. Delivered a detailed risk report with mitigation strategies.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Network</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Firewall</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">VPN</span>
+                    </div>
+                    
+                    <div class="text-left text-sm">
+                        <span class="text-matrix">$ </span><span class="text-white">nmap -sS -O target_network</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: API Security Testing -->
+                <div class="terminal-border p-6 hover-glow transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-code text-matrix text-xl"></i>
+                        <h3 class="text-lg font-bold text-white">API Security Testing</h3>
+                    </div>
+                    
+                    <!-- Code terminal screen -->
+                    <img src="https://images.unsplash.com/photo-1516110833967-0b5716ca1387?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Terminal screen displaying API security testing code" class="w-full h-48 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <p class="text-gray-300 mb-4 text-sm">Banking Application</p>
+                    <p class="text-gray-400 text-sm mb-4">Tested critical APIs for authentication bypass, broken object-level authorization (BOLA), and sensitive data exposure. Helped the client strengthen OAuth 2.0 implementation and improve input validation.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">API</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">OAuth</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">BOLA</span>
+                    </div>
+                    
+                    <div class="text-left text-sm">
+                        <span class="text-matrix">$ </span><span class="text-white">curl -X POST api/auth/bypass</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Social Engineering -->
+                <div class="terminal-border p-6 hover-glow transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-user-secret text-matrix text-xl"></i>
+                        <h3 class="text-lg font-bold text-white">Social Engineering & Phishing</h3>
+                    </div>
+                    
+                    <!-- Cybersecurity analyst workspace -->
+                    <img src="https://images.unsplash.com/photo-1551808525-51a94da548ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250" alt="Cybersecurity analyst workspace with security monitoring tools" class="w-full h-48 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <p class="text-gray-300 mb-4 text-sm">Phishing Simulation</p>
+                    <p class="text-gray-400 text-sm mb-4">Executed controlled social engineering campaigns to test employee awareness. Designed phishing templates and measured click-through rates, reducing phishing success rates by 60% after awareness training.</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Phishing</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Social Eng</span>
+                        <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Training</span>
+                    </div>
+                    
+                    <div class="text-left text-sm">
+                        <span class="text-matrix">$ </span><span class="text-white">./phishing-sim --success-rate 60%</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: SIEM Log Analysis -->
+                <div class="terminal-border p-6 hover-glow transition-all duration-300 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fas fa-chart-line text-matrix text-xl"></i>
+                        <h3 class="text-lg font-bold text-white">SIEM Log Analysis & Incident Response</h3>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-gray-400 text-sm mb-4">Configured and monitored SIEM dashboards (Splunk/Wazuh) to detect anomalies. Investigated brute force attempts, malware infections, and privilege escalation incidents, followed by containment and eradication.</p>
+                            
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">SIEM</span>
+                                <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Splunk</span>
+                                <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Incident Response</span>
+                                <span class="bg-charcoal text-matrix text-xs px-2 py-1 rounded">Threat Hunting</span>
+                            </div>
+                            
+                            <div class="text-left text-sm">
+                                <span class="text-matrix">$ </span><span class="text-white">splunk search "failed_login"</span>
+                                <br>
+                                <span class="text-cyber">Found 1,337 events in 0.042 seconds</span>
+                            </div>
+                        </div>
+                        
+                        <!-- SIEM dashboard visualization -->
+                        <img src="https://pixabay.com/get/g68d3fad8d7d7305fd51cdd2149c8d946ca05207cfdeddd50b4382bb01026f0b3fd514d23f12b09fb7dc7bdff8a1c41447b9a835c2ecff17cdeac67a1b50a3461_1280.jpg" alt="SIEM dashboard showing security monitoring data" class="w-full h-full object-cover rounded" data-mock-image="true" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Projects Section -->
+
+    <!-- @COMPONENT: Skills Section -->
+    <section id="skills" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>Skills<span class="text-cyber">.json</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cybersecurity Skills -->
+                <div class="terminal-border p-6">
+                    <h3 class="text-lg font-bold text-matrix mb-4 flex items-center gap-2">
+                        <i class="fas fa-shield-alt"></i>
+                        Cybersecurity
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>VAPT</span>
+                                <span class="text-matrix">95%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[95%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Incident Response</span>
+                                <span class="text-matrix">90%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[90%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Threat Hunting</span>
+                                <span class="text-matrix">85%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[85%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Compliance</span>
+                                <span class="text-matrix">88%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[88%] rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Skills -->
+                <div class="terminal-border p-6">
+                    <h3 class="text-lg font-bold text-cyber mb-4 flex items-center gap-2">
+                        <i class="fas fa-code"></i>
+                        Programming
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Python</span>
+                                <span class="text-matrix">90%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[90%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Bash</span>
+                                <span class="text-matrix">85%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[85%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>SQL</span>
+                                <span class="text-matrix">80%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[80%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Django</span>
+                                <span class="text-matrix">75%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[75%] rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="terminal-border p-6">
+                    <h3 class="text-lg font-bold text-electric mb-4 flex items-center gap-2">
+                        <i class="fas fa-tools"></i>
+                        Tools
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Burp Suite</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Nmap</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Metasploit</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Wireshark</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Nessus</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>OWASP ZAP</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-matrix">▸</span>
+                            <span>Splunk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operating Systems -->
+                <div class="terminal-border p-6">
+                    <h3 class="text-lg font-bold text-danger mb-4 flex items-center gap-2">
+                        <i class="fas fa-desktop"></i>
+                        Operating Systems
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Linux</span>
+                                <span class="text-matrix">95%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[95%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Kali Linux</span>
+                                <span class="text-matrix">92%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[92%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Parrot OS</span>
+                                <span class="text-matrix">88%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[88%] rounded"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Windows</span>
+                                <span class="text-matrix">80%</span>
+                            </div>
+                            <div class="bg-charcoal h-2 rounded">
+                                <div class="progress-bar w-[80%] rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Skills Section -->
+
+    <!-- @COMPONENT: Certifications Section -->
+    <section id="certifications" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>Certifications<span class="text-cyber">.list</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Current Certification -->
+                <div class="terminal-border p-6 text-center hover-glow transition-all duration-300">
+                    <!-- Security certificate badge -->
+                    <img src="https://pixabay.com/get/geb29971574fdd6d9b0ed0404c2289299053fb68812213345e321d2ff7d72bd24b5e648c59a97a8e2a41475e6149466af82ca2a269d9982df93d941ee0c12ad5f_1280.jpg" alt="Cybersecurity certification badge on a professional certificate" class="w-full h-32 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <h3 class="text-lg font-bold text-matrix mb-2">Ethical Hacking Certification</h3>
+                    <p class="text-cyber mb-2">IIT Kharagpur</p>
+                    <p class="text-gray-400 text-sm">Completed</p>
+                    
+                    <div class="mt-4">
+                        <span class="text-matrix">$ </span><span class="text-white text-sm">verify --cert EH_IIT_KGP</span>
+                        <br>
+                        <span class="text-cyber text-sm">✓ Certificate verified</span>
+                    </div>
+                </div>
+
+                <!-- Future Certifications -->
+                <div class="terminal-border p-6 text-center hover-glow transition-all duration-300 opacity-75">
+                    <!-- Security certification badge -->
+                    <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=200" alt="Professional cybersecurity certification badge" class="w-full h-32 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <h3 class="text-lg font-bold text-gray-400 mb-2">CEH</h3>
+                    <p class="text-gray-500 mb-2">EC-Council</p>
+                    <p class="text-gray-400 text-sm">In Progress</p>
+                    
+                    <div class="mt-4">
+                        <span class="text-matrix">$ </span><span class="text-white text-sm">status --cert CEH</span>
+                        <br>
+                        <span class="text-yellow-500 text-sm">⏳ Preparing...</span>
+                    </div>
+                </div>
+
+                <div class="terminal-border p-6 text-center hover-glow transition-all duration-300 opacity-75">
+                    <!-- Security training certificate -->
+                    <img src="https://pixabay.com/get/g45a58f93e7eac9efd736c0e3872299d7bb05c252c3db92b427777e4d040c1a4cf784c8499a918eb82a3923681b3c835de29b675e034afa505819a8958b315790_1280.jpg" alt="Advanced cybersecurity training certificate" class="w-full h-32 object-cover rounded mb-4" data-mock-image="true" />
+                    
+                    <h3 class="text-lg font-bold text-gray-400 mb-2">OSCP</h3>
+                    <p class="text-gray-500 mb-2">Offensive Security</p>
+                    <p class="text-gray-400 text-sm">Planned</p>
+                    
+                    <div class="mt-4">
+                        <span class="text-matrix">$ </span><span class="text-white text-sm">roadmap --cert OSCP</span>
+                        <br>
+                        <span class="text-yellow-500 text-sm">📋 In roadmap</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold text-center mb-8">
+                    <span class="text-matrix">// </span>Achievements<span class="text-cyber">.log</span>
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="terminal-border p-6 text-center hover-glow transition-all duration-300">
+                        <i class="fas fa-trophy text-matrix text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">State-Level Competition</h4>
+                        <p class="text-gray-400 text-sm">Consolation Prize - Scholarship Portal</p>
+                        <div class="mt-4 text-sm">
+                            <span class="text-matrix">achievement_unlocked:</span> <span class="text-cyber">true</span>
+                        </div>
+                    </div>
+
+                    <div class="terminal-border p-6 text-center hover-glow transition-all duration-300">
+                        <i class="fas fa-code text-matrix text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Coding Problems</h4>
+                        <p class="text-gray-400 text-sm">100+ Problems Solved on LeetCode & HackerRank</p>
+                        <div class="mt-4 text-sm">
+                            <span class="text-matrix">problems_solved:</span> <span class="text-cyber">100+</span>
+                        </div>
+                    </div>
+
+                    <div class="terminal-border p-6 text-center hover-glow transition-all duration-300">
+                        <i class="fas fa-microphone text-matrix text-3xl mb-4"></i>
+                        <h4 class="text-lg font-bold text-white mb-2">Leadership & Speaking</h4>
+                        <p class="text-gray-400 text-sm">Cybersecurity Seminars & Vice Chairman of ESA</p>
+                        <div class="mt-4 text-sm">
+                            <span class="text-matrix">leadership_level:</span> <span class="text-cyber">expert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Certifications Section -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-matrix">// </span>Contact<span class="text-cyber">.init()</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-matrix to-cyber mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="terminal-border p-8">
+                    <div class="text-left mb-6">
+                        <span class="text-matrix">$ </span><span class="text-white">cat contact_info.txt</span>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-envelope text-matrix text-xl"></i>
+                                <div>
+                                    <p class="text-white font-semibold">Email</p>
+                                    <a href="mailto:connect.virendragawande@gmail.com" class="text-cyber hover:text-matrix transition-colors">connect.virendragawande@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <i class="fas fa-phone text-matrix text-xl"></i>
+                                <div>
+                                    <p class="text-white font-semibold">Phone</p>
+                                    <a href="tel:+917498620773" class="text-cyber hover:text-matrix transition-colors">+91-7498620773</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <i class="fab fa-linkedin text-matrix text-xl"></i>
+                                <div>
+                                    <p class="text-white font-semibold">LinkedIn</p>
+                                    <a href="https://linkedin.com" class="text-cyber hover:text-matrix transition-colors" data-mock="true">linkedin.com/in/virendra-gawande</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <i class="fab fa-github text-matrix text-xl"></i>
+                                <div>
+                                    <p class="text-white font-semibold">GitHub</p>
+                                    <a href="https://github.com" class="text-cyber hover:text-matrix transition-colors" data-mock="true">github.com/virendra-gawande</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="text-left">
+                                <span class="text-matrix">$ </span><span class="text-white">echo "Ready to secure your business?"</span>
+                                <br>
+                                <span class="text-cyber">Ready to secure your business?</span>
+                            </div>
+                            
+                            <div class="text-left">
+                                <span class="text-matrix">$ </span><span class="text-white">./connect --mode collaboration</span>
+                                <br>
+                                <span class="text-cyber">Connection established. Awaiting collaboration...</span>
+                            </div>
+                            
+                            <div class="bg-charcoal p-4 rounded border border-matrix/30">
+                                <p class="text-gray-300 text-sm mb-4">Let's discuss how I can help strengthen your organization's cybersecurity posture. Whether you need penetration testing, security assessments, or compliance guidance, I'm here to help.</p>
+                                
+                                <div class="text-left text-sm">
+                                    <span class="text-matrix">Available for:</span>
+                                    <br>
+                                    <span class="text-white">• Penetration Testing</span>
+                                    <br>
+                                    <span class="text-white">• Security Consultations</span>
+                                    <br>
+                                    <span class="text-white">• Vulnerability Assessments</span>
+                                    <br>
+                                    <span class="text-white">• Security Training</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 text-center">
+                        <div class="text-left">
+                            <span class="text-matrix">$ </span><span class="text-white">exit</span>
+                            <br>
+                            <span class="text-cyber">Thanks for visiting! Stay secure. 🔒</span><span class="animate-pulse">_</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-darker py-8 border-t border-matrix/30">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-gray-400 text-sm">
+                <span class="text-matrix">© 2024 Virendra Gawande.</span> All rights reserved.
+                <br>
+                <span class="text-white">Designed with</span> <span class="text-danger">❤️</span> <span class="text-white">and</span> <span class="text-matrix">cybersecurity</span> <span class="text-white">in mind.</span>
+            </div>
+            
+            <div class="mt-4 text-xs text-gray-500">
+                <span class="text-matrix">$ </span><span class="text-white">uptime</span>
+                <br>
+                <span class="text-cyber">System secure and operational since 2023</span>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        })();
+
+        // Typing animation for hero section
+        (function() {
+            const typingElement = document.getElementById('typing-text');
+            if (typingElement) {
+                const text = typingElement.textContent;
+                typingElement.textContent = '';
+                
+                let i = 0;
+                function typeWriter() {
+                    if (i < text.length) {
+                        typingElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+                
+                // Start typing animation after a short delay
+                setTimeout(typeWriter, 1000);
+            }
+        })();
+
+        // Animate progress bars when they come into view
+        (function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const width = progressBar.style.width || progressBar.classList.toString().match(/w-\[(\d+)%\]/)?.[1] + '%';
+                        
+                        if (width) {
+                            progressBar.style.width = '0%';
+                            setTimeout(() => {
+                                progressBar.style.width = width;
+                            }, 200);
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            progressBars.forEach(bar => {
+                observer.observe(bar);
+            });
+        })();
+
+        // Add terminal cursor animation to various elements
+        (function() {
+            const terminalElements = document.querySelectorAll('[class*="terminal"]');
+            
+            terminalElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 30px rgba(0, 255, 65, 0.4)';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0 0 20px rgba(0, 255, 65, 0.3)';
+                });
+            });
+        })();
+
+        // TODO: Implement business logic for:
+        // - Contact form submission
+        // - Dynamic skill progress loading
+        // - Project filtering and search
+        // - Real-time typing animations
+        // - Social media integrations
+        // - Analytics tracking
+        // - Performance monitoring
+    </script>
+</body>
+</html>

@@ -15,8 +15,8 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(port, '0.0.0.0', () => {
-    console.log(`> Ready on http://0.0.0.0:${port}`);
+  server.listen(port, '127.0.0.1', () => {
+    console.log(`> Ready on http://127.0.0.1:${port}`);
   });
 }).catch((ex) => {
   console.error(ex.stack);
