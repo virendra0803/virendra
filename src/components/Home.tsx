@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { Mail, Phone, ExternalLink, Shield, Code, Network, Users, Trophy, Mic, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, ExternalLink, Shield, Code, Network, Users, Trophy, Mic, Github, Linkedin, Handshake } from "lucide-react";
 import Navigation from "@/components/navigation";
 import TerminalEffect from "@/components/terminal-effect";
 import TypingAnimation from "@/components/typing-animation";
@@ -121,12 +121,12 @@ export default function Home() {
               <br />
               <span className="text-matrix">└─$ </span><span className="text-white">whoami</span>
             </div>
-            
+            <div>
             <h1 className="text-4xl md:text-6xl font-bold mb-4" data-testid="hero-title">
               <span className="glitch-text text-white" data-text="Hi, I'm ">Hi, I'm </span>
               <span className="text-matrix glitch-text" data-text="Virendra Gawande">Virendra Gawande</span>
             </h1>
-            
+            </div>
             <div className="text-xl md:text-2xl mb-6 text-cyber" data-testid="hero-subtitle">
               <TypingAnimation 
                 text="Information Security Officer | Cybersecurity Professional"
@@ -479,6 +479,25 @@ export default function Home() {
             </h3>
             
             <div className="grid md:grid-cols-3 gap-8">
+
+              <TerminalEffect className="text-center" data-testid="achievement-competition">
+                <Handshake className="text-matrix text-3xl mb-4 mx-auto" />
+                <h4 className="text-lg font-bold text-white mb-2">Strategic Partnership</h4>
+                <p className="text-gray-400 text-sm">NuageCX Consulting PVT LTD</p>
+                <div className="mt-4 text-sm">
+                  <span className="text-matrix">leadership_level:</span> <span className="text-cyber">expert</span>
+                </div>
+              </TerminalEffect>
+
+              <TerminalEffect className="text-center" data-testid="achievement-leadership">
+                <Mic className="text-matrix text-3xl mb-4 mx-auto" />
+                <h4 className="text-lg font-bold text-white mb-2">Leadership</h4>
+                <p className="text-gray-400 text-sm">Vice Chairman of ESA</p>
+                <div className="mt-4 text-sm">
+                  <span className="text-matrix">leadership_level:</span> <span className="text-cyber">expert</span>
+                </div>
+              </TerminalEffect>
+
               <TerminalEffect className="text-center" data-testid="achievement-competition">
                 <Trophy className="text-matrix text-3xl mb-4 mx-auto" />
                 <h4 className="text-lg font-bold text-white mb-2">State-Level Competition</h4>
@@ -497,14 +516,6 @@ export default function Home() {
                 </div>
               </TerminalEffect>
 
-              <TerminalEffect className="text-center" data-testid="achievement-leadership">
-                <Mic className="text-matrix text-3xl mb-4 mx-auto" />
-                <h4 className="text-lg font-bold text-white mb-2">Leadership & Speaking</h4>
-                <p className="text-gray-400 text-sm">Cybersecurity Seminars & Vice Chairman of ESA</p>
-                <div className="mt-4 text-sm">
-                  <span className="text-matrix">leadership_level:</span> <span className="text-cyber">expert</span>
-                </div>
-              </TerminalEffect>
             </div>
           </div>
         </div>
@@ -552,7 +563,7 @@ export default function Home() {
                     <Linkedin className="text-matrix text-xl" />
                     <div>
                       <p className="text-white font-semibold">LinkedIn</p>
-                      <a href="https://linkedin.com" className="text-cyber hover:text-matrix transition-colors" data-testid="contact-linkedin">
+                      <a href="https://www.linkedin.com/in/virendra-gawande-819127253/" className="text-cyber hover:text-matrix transition-colors" data-testid="contact-linkedin">
                         linkedin.com/in/virendra-gawande
                       </a>
                     </div>
@@ -562,7 +573,7 @@ export default function Home() {
                     <Github className="text-matrix text-xl" />
                     <div>
                       <p className="text-white font-semibold">GitHub</p>
-                      <a href="https://github.com" className="text-cyber hover:text-matrix transition-colors" data-testid="contact-github">
+                      <a href="https://github.com/virendra0803" className="text-cyber hover:text-matrix transition-colors" data-testid="contact-github">
                         github.com/virendra-gawande
                       </a>
                     </div>
@@ -616,9 +627,9 @@ export default function Home() {
       <footer className="bg-darker py-8 border-t border-matrix/30" data-testid="footer">
         <div className="container mx-auto px-6 text-center">
           <div className="text-gray-400 text-sm">
-            <span className="text-matrix">© 2024 Virendra Gawande.</span> All rights reserved.
+            <span className="text-matrix">© 2025 Virendra Gawande.</span> All rights reserved.
             <br />
-            <span className="text-white">Designed with</span> <span className="text-danger">❤️</span> <span className="text-white">and</span> <span className="text-matrix">cybersecurity</span> <span className="text-white">in mind.</span>
+            {/* <span className="text-white">Designed with</span> <span className="text-danger">❤️</span> <span className="text-white">and</span> <span className="text-matrix">cybersecurity</span> <span className="text-white">in mind.</span> */}
           </div>
           
           <div className="mt-4 text-xs text-gray-500">
